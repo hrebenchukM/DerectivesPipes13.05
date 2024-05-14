@@ -1,0 +1,42 @@
+<h2>Структурная Директива ngIf</h2>
+
+<!-- *ngIf - удаляет элемент и его дочерние элементы из дерева DOM если выражение false, 
+     иначе, элемент div будет добавлен в разметку-->
+<div>
+    <button (click)="flagCar = true;flagPlane=false;flagShip=false">Автомобиль</button>
+    <button (click)="flagPlane = true;flagCar=false;flagShip=false ">Самолет</button>
+    <button (click)="flagShip = true;flagCar=false;flagPlane = false">Корабль</button>
+  </div>
+<hr>
+
+
+
+<div *ngIf="flagCar" [ngStyle]="{'background-color': 'lightblue'}">
+    <h2>Информация о самом большом на планете автомобиле:</h2>
+    <img src="{{carImg}}">
+    <p>{{ carInfo | uppercase }}</p>
+  </div>
+
+<div *ngIf="flagPlane"[ngStyle]="{'background-color': 'lightgreen'}">
+    <h2>Информация о самом большом на планете самолете:</h2>
+    <img src="{{planeImg}}">
+    <p>{{ planeInfo | titlecase }}</p>
+  </div>
+  
+
+  <div *ngIf="flagShip" [ngStyle]="{'background-color': 'lightcoral'}">
+    <h2>Информация о самом большом на планете корабле:</h2>
+    <img src="{{shipImg}}">
+    <p>{{ shipInfo | lowercase }}</p>
+  </div>
+  
+
+
+<!-- ng-template директива инструмент Angular шаблона и содержимое этого тега будет содержать часть шаблона, 
+    которую затем может быть использовано вместе с другими шаблонами для формирования окончательного шаблона 
+    компонента. -->
+
+
+
+      
+   
